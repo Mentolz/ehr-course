@@ -24,7 +24,7 @@ description
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
 		["build_uid"] = <"1dc35bbe-83d1-3aa6-a5f9-ed20eca5717b">
-		["MD5-CAM-1.0.1"] = <"ee5e6de60e3d8bc9eae39f28de69c94c">
+		["MD5-CAM-1.0.1"] = <"a51de0d7c66b1cf8bc0d03031cc01dd3">
 	>
 
 definition
@@ -38,26 +38,29 @@ definition
 								items cardinality matches {0..*; unordered} matches {
 									ELEMENT[at0004] occurrences matches {0..1} matches {    -- I forget to take them
 										value matches {
-											0|[local::at0005],
-											1|[local::at0006],
-											2|[local::at0007],
-											3|[local::at0008]
+											1|[local::at0005],
+											2|[local::at0006],
+											3|[local::at0007],
+											4|[local::at0008],
+											5|[local::at0027]
 										}
 									}
 									ELEMENT[at0009] occurrences matches {0..1} matches {    -- I alter the dose
 										value matches {
-											0|[local::at0005],
-											1|[local::at0006],
-											2|[local::at0007],
-											3|[local::at0008]
+											1|[local::at0005],
+											2|[local::at0006],
+											3|[local::at0007],
+											4|[local::at0008],
+											5|[local::at0027]
 										}
 									}
 									ELEMENT[at0012] occurrences matches {0..1} matches {    -- I stop taking them for a while
 										value matches {
-											0|[local::at0005],
-											1|[local::at0006],
-											2|[local::at0007],
-											3|[local::at0008]
+											1|[local::at0005],
+											2|[local::at0006],
+											3|[local::at0007],
+											4|[local::at0008],
+											5|[local::at0027]
 										}
 									}
 									ELEMENT[at0013] occurrences matches {0..1} matches {    -- I decide to miss out a dose
@@ -71,11 +74,11 @@ definition
 									}
 									ELEMENT[at0014] occurrences matches {0..1} matches {    -- I take less than instructed
 										value matches {
-											0|[local::at0005],
-											1|[local::at0006],
-											2|[local::at0007],
-											3|[local::at0008],
-											4|[local::at0026]
+											1|[local::at0005],
+											2|[local::at0006],
+											3|[local::at0007],
+											4|[local::at0008],
+											5|[local::at0027]
 										}
 									}
 									ELEMENT[at0010] occurrences matches {0..1} matches {    -- MARS-5 Score
@@ -177,10 +180,6 @@ ontology
 					text = <"Extension">
 					description = <"Additional information required to capture local content or to align with other reference models/formalisms.">
 					comment = <"For example: local information requirements or additional metadata to align with FHIR or CIMI equivalents.">
-				>
-				["at0026"] = <
-					text = <"Never">
-					description = <"">
 				>
 				["at0027"] = <
 					text = <"Never">
