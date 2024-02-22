@@ -40,13 +40,13 @@ Kroenke K, Spitzer RL, Williams JB. The Patient Health Questionnaire-2: validity
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"5591953BB82BBEFBD0AB521E8EF5DB71">
+		["MD5-CAM-1.0.1"] = <"de97e466adb20d37ce875c92b7f6dfd3">
 		["build_uid"] = <"d6653acb-2695-4c08-8840-30198bbddeff">
 		["revision"] = <"0.0.1-alpha">
 	>
 
 definition
-	OBSERVATION[at0000] matches {    -- Patient health questionnaire-9 (PHQ-9)
+	OBSERVATION[at0000] matches {    -- MARS-5
 		data matches {
 			HISTORY[at0001] matches {    -- Event Series
 				events cardinality matches {1..*; unordered} matches {
@@ -177,7 +177,7 @@ ontology
 		["en"] = <
 			items = <
 				["at0000"] = <
-					text = <"Patient health questionnaire-9 (PHQ-9)">
+					text = <"MARS-5">
 					description = <"Screening questionnaire for mental health that can be used by health professionals or self-reported by individuals.">
 				>
 				["at0001"] = <
