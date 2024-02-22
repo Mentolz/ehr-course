@@ -24,7 +24,7 @@ description
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
 		["build_uid"] = <"1dc35bbe-83d1-3aa6-a5f9-ed20eca5717b">
-		["MD5-CAM-1.0.1"] = <"3da8dc3f556185a8a6dcc67f1d322c20">
+		["MD5-CAM-1.0.1"] = <"ee5e6de60e3d8bc9eae39f28de69c94c">
 	>
 
 definition
@@ -62,10 +62,11 @@ definition
 									}
 									ELEMENT[at0013] occurrences matches {0..1} matches {    -- I decide to miss out a dose
 										value matches {
-											0|[local::at0005],
-											1|[local::at0006],
-											2|[local::at0007],
-											3|[local::at0008]
+											1|[local::at0005],
+											2|[local::at0006],
+											3|[local::at0007],
+											4|[local::at0008],
+											5|[local::at0027]
 										}
 									}
 									ELEMENT[at0014] occurrences matches {0..1} matches {    -- I take less than instructed
@@ -178,6 +179,10 @@ ontology
 					comment = <"For example: local information requirements or additional metadata to align with FHIR or CIMI equivalents.">
 				>
 				["at0026"] = <
+					text = <"Never">
+					description = <"">
+				>
+				["at0027"] = <
 					text = <"Never">
 					description = <"">
 				>
