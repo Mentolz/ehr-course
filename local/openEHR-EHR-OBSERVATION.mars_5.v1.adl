@@ -1,0 +1,186 @@
+archetype (adl_version=1.4; uid=77c182fc-3f3a-4536-b0ac-13f5b95f0ded)
+	openEHR-EHR-OBSERVATION.mars_5.v1
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	original_author = <
+		["date"] = <"2024-02-22">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["build_uid"] = <"1dc35bbe-83d1-3aa6-a5f9-ed20eca5717b">
+		["MD5-CAM-1.0.1"] = <"3da8dc3f556185a8a6dcc67f1d322c20">
+	>
+
+definition
+	OBSERVATION[at0000] matches {    -- MARS-5
+		data matches {
+			HISTORY[at0001] matches {    -- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					POINT_EVENT[at0002] occurrences matches {0..1} matches {    -- Point in Time
+						data matches {
+							ITEM_TREE[at0003] matches {    -- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] occurrences matches {0..1} matches {    -- I forget to take them
+										value matches {
+											0|[local::at0005],
+											1|[local::at0006],
+											2|[local::at0007],
+											3|[local::at0008]
+										}
+									}
+									ELEMENT[at0009] occurrences matches {0..1} matches {    -- I alter the dose
+										value matches {
+											0|[local::at0005],
+											1|[local::at0006],
+											2|[local::at0007],
+											3|[local::at0008]
+										}
+									}
+									ELEMENT[at0012] occurrences matches {0..1} matches {    -- I stop taking them for a while
+										value matches {
+											0|[local::at0005],
+											1|[local::at0006],
+											2|[local::at0007],
+											3|[local::at0008]
+										}
+									}
+									ELEMENT[at0013] occurrences matches {0..1} matches {    -- I decide to miss out a dose
+										value matches {
+											0|[local::at0005],
+											1|[local::at0006],
+											2|[local::at0007],
+											3|[local::at0008]
+										}
+									}
+									ELEMENT[at0014] occurrences matches {0..1} matches {    -- I take less than instructed
+										value matches {
+											0|[local::at0005],
+											1|[local::at0006],
+											2|[local::at0007],
+											3|[local::at0008],
+											4|[local::at0026]
+										}
+									}
+									ELEMENT[at0010] occurrences matches {0..1} matches {    -- MARS-5 Score
+										value matches {
+											DV_COUNT matches {
+												magnitude matches {|0..6|}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0024] matches {    -- Tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0025] occurrences matches {0..*} matches {    -- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"MARS-5">
+					description = <"Screening questionnaire for mental health that can be used by health professionals or self-reported by individuals.">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Point in Time">
+					description = <"A specific date and/or time which may be explicitly defined in a template or at run-time.">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"I forget to take them">
+					description = <"Over the last two weeks, how often have you been bothered by little interest or pleasure in doing things?">
+					comment = <"Adapted for Australian indigenous use: \"Have you been feeling slack, not wanted to do anything?\"">
+				>
+				["at0005"] = <
+					text = <"Always">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Often">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"Sometimes">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"Rarely">
+					description = <"">
+				>
+				["at0009"] = <
+					text = <"I alter the dose">
+					description = <"Over the last two weeks, how often have you been bothered by feeling down, depressed, or hopeless?">
+					comment = <"Adapted for Australian indigenous use: \"Have you been feeling unhappy, depressed, really no good, that your spirit was sad?\"">
+				>
+				["at0010"] = <
+					text = <"MARS-5 Score">
+					description = <"Total score for the first two questions on 'Interest/Pleasure' and 'Feeling Down'.">
+				>
+				["at0012"] = <
+					text = <"I stop taking them for a while">
+					description = <"Over the last two weeks, how often have you been bothered by trouble falling or staying asleep, or sleeping too much?">
+					comment = <"Adapted for Australian indigenous use: \"Have you found it hard to sleep at night, or had other problems with sleeping?\"">
+				>
+				["at0013"] = <
+					text = <"I decide to miss out a dose">
+					description = <"Over the last two weeks, how often have you been bothered by feeling tired or having little energy?">
+					comment = <"Adapted for Australian indigenous use: \"Have you felt tired or weak, that you have no energy?\"">
+				>
+				["at0014"] = <
+					text = <"I take less than instructed">
+					description = <"Over the last two weeks, how often have you been bothered by poor appetite or overeating?">
+					comment = <"Adapted for Australian indigenous use: \"Have you not felt like eating much even when there was food around, or have you been eating too much food?\"">
+				>
+				["at0024"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0025"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local content or to align with other reference models/formalisms.">
+					comment = <"For example: local information requirements or additional metadata to align with FHIR or CIMI equivalents.">
+				>
+				["at0026"] = <
+					text = <"Never">
+					description = <"">
+				>
+			>
+		>
+	>
